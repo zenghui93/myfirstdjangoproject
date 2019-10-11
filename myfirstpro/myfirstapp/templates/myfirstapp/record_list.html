@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<body>
+{% block content%}
+<h1>Record List (Function Based View)</h1>
+
+{% endblock %}
+
+<table border="1">
+    <th>List</th>
+    <th>Category</th>
+    <th>Title</th>
+
+
+  {% for record in records %}
+
+<tr>
+    <td>{{record.list}}</td>
+    <td>{{record.category}}</td>
+    <td><a href="{% url 'class_record_detail' record.pk  %}">{{record.title}}</a></td>
+
+
+</tr>
+{% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<html>
+
+<body>
+<h2>Upload Record</h2>
+
+
+
+    <form method="post" enctype="multipart/form-data">{% csrf_token %}
+        {{form.as_p}}
+        <input type="submit"> Upload </input>
+
+    </form>
+
+</body>
+</html>

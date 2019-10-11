@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+<html>
+
+<body ng-app="myfirstapp.demo">
+
+    {% verbatim %}
+
+
+
+    <div ng-controller="MyfirstappController">
+        <p>{{data}}</p>
+
+
+        <form method="post" enctype="multipart/form-data">
+
+            Title:  <input type="text" name="Title"> <br>
+
+            Category:
+            <select ng-model= "category_sets">
+                <option ng-repeat="list in category_sets">{{list.name}}</option>
+
+            </select><br>
+
+
+            List:
+            <select ng-model= "data">
+                <option ng-repeat="list in data">{{list.name}}</option>
+
+            </select><br> <br>
+            Picture: <input type="file" name="selectedPic"/>
+            <p>The name of the selected Picture is {{ picName }} </p>
+
+
+
+            <button type="button" ng-click="uploadFile()">upload</button><br>
+            Description:<br><textarea name="Description" rows="4" cols="50"></textarea> <br>
+            Submit<input type="submit" value="Submit">
+
+         </form>
+
+     <div ng-repeat = "list in data">
+            <h1>
+            </h1>
+            <h3>{{ list.name }}</h3>
+            <ul>
+                <li ng-repeat = "record in list.records">
+                 <my-record></my-record>
+                </li>
+            </ul>
+
+
+        </div>
+    {% endverbatim %}
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script src="{% static "js/myfirstapp.js" %}"></script>
+    <script src="{% static "js/myfirstapp.directive.js" %}"></script>
+</body>
+</html>

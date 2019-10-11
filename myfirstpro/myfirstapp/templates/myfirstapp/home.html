@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+<html>
+
+<body ng-app="myfirstapp.demo">
+
+    {% verbatim %}
+
+    <div ng-controller="MyfirstappController">
+    {{data}}
+     <div ng-repeat = "list in data">
+            <h1>
+            </h1>
+            <h3>{{ list.name }}</h3>
+            <ul>
+                <li ng-repeat = "record in list.list_sets">
+                 <my-record></my-record>
+                </li>
+            </ul>
+
+
+        </div>
+    {% endverbatim %}
+
+      <div>
+            {% block content %}
+            {% endblock %}
+        </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script src="{% static "js/myfirstapp.js" %}"></script>
+    <script src="{% static "js/myfirstapp.directive.js" %}"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+<h1> Class Based Record DetailView </h1>
+
+<table border="1">
+    <th>List</th>
+    <th>Category</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Picture</th>
+    <th>Download</th>
+
+
+<tr>
+    <td>{{record.list}}</td>
+    <td>{{record.category}}</td>
+    <td>{{record.title}}</td>
+    <td>{{record.description}}</td>
+
+    <td style="height:100"><img src="{{record.picture.url}}" height="50" width="50" /></td>
+    <td><a href="{{record.picture.url}}">clicca per download</a></td></br>
+
+
+</tr>
+</table>
+<button><a href="{% url 'class_record_update' record.pk %}">Edit</a></button>
+<button><a href="{% url 'class_record_delete' record.pk %}">Delete</a></button>
+
+
+</body>
+</html>
