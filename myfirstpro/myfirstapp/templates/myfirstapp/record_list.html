@@ -1,12 +1,19 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+{% extends 'myfirstapp/base.html' %}
 
-<body>
+{% block navbar_content%}
+<ul>
+  <li><a class="active" href="{% url 'record_list' %}">Record List</a></li>
+  <li><a href="{% url 'class_record_list'%}">Class Record List</a></li>
+  <li><a href="{% url 'upload_record' %}">Upload</a></li>
+
+</ul>
+{% endblock %}
+
+
 {% block content%}
 <h1>Record List (Function Based View)</h1>
 
-{% endblock %}
+
 
 <table border="1">
     <th>List</th>
@@ -24,6 +31,6 @@
 
 </tr>
 {% endfor %}
-    </table>
-</body>
-</html>
+
+</table>
+{% endblock %}

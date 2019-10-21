@@ -1,7 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'myfirstapp/base.html' %}
 
-<body>
+
+{% block navbar_content%}
+<ul>
+  <li><a class="active" href="{% url 'class_record_list'%}">Class Record List</a></li>
+  <li><a href="{% url 'upload_record' %}">Upload</a></li>
+</ul>
+{% endblock %}
+
+{% block content%}
 <h1>Class Record DeleteView</h1>
 <form method="post" enctype="multipart/form-data">{% csrf_token %}
     <p>Are you sure you want to delete the record below?</p></br>
@@ -30,5 +37,4 @@
 
 </form>
 
-</body>
-</html>
+{% endblock %}

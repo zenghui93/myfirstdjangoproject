@@ -1,8 +1,36 @@
 {% extends 'myfirstapp/record_list.html' %}
 
+
+{% block navbar_content%}
+<ul>
+  <li><a class="active" href="{% url 'class_record_list'%}">Class Record List</a></li>
+  <li><a href="{% url 'upload_record' %}">Upload</a></li>
+
+</ul>
+{% endblock %}
+
+
 {% block content %}
 
 <h1>Record List (Class Based View)</h1>
+<table border="1">
+    <th>List</th>
+    <th>Category</th>
+    <th>Title</th>
+
+
+  {% for record in records %}
+
+<tr>
+    <td>{{record.list}}</td>
+    <td>{{record.category}}</td>
+    <td><a href="{% url 'class_record_detail' record.pk  %}">{{record.title}}</a></td>
+
+
+</tr>
+{% endfor %}
+
+</table>
 
 {% endblock %}
 
